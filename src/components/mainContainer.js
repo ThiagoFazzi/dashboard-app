@@ -2,19 +2,7 @@ import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import { getSensorValue } from '../actions/sensors'
 import SensorComponent from './sensorComponent';
-
-
-const styles = {
-    docker: {
-        marginTop: '50px',
-        marginLeft: '200px',
-        width: '50px',
-        height: '300px',
-        border: '1px solid black',
-        backgroundColor: 'red'
-
-    }
-}
+import CircularProgressBar from './circularProgressBar'
 
 class MainComponent extends PureComponent {
 
@@ -26,10 +14,15 @@ class MainComponent extends PureComponent {
 
     render(){
         const { sensors } = this.props
-        console.log('props',sensors)
         return(
-            <div style={styles.docker}>
-                <SensorComponent value={sensors.value} >{`ttt`}</SensorComponent>
+            <div>
+                <SensorComponent
+                    value={sensors.value} />
+                
+                <CircularProgressBar
+                    strokeWidth="5"
+                    sqSize="200"
+                    percentage={sensors.value}/>
             </div>
         )
     }
