@@ -1,6 +1,6 @@
 import React from 'react'
 
-const CircularProgressBar = ({percentage, strokeWidth, sqSize}) => {
+const CircularProgressBar = ({percentage, strokeWidth, sqSize, color}) => {
 
 
   const sqSizeT = sqSize;
@@ -16,17 +16,17 @@ const CircularProgressBar = ({percentage, strokeWidth, sqSize}) => {
     },
     circleProgress: {
       fill: 'none',
-      stroke: 'green',
+      stroke: `${color}`,
       strokeLinecap: 'round',
       strokeLinejoin: 'round',
       strokeDasharray: `${dashArray}`, 
       strokeDashoffset: `${dashOffset}`,
-      transition: 'stroke-dashoffset 1s, stroke-dasharray 1s',
+      transition: 'stroke-dashoffset 2s, stroke-dasharray 2s',
     },
     circleText: {
-      fontSize: '3em',
+      fontSize: `${sqSizeT * 0.015}em`,
       fontWeight: 'bold',
-      fill: 'green',
+      fill: `${color}`,
     }
   }
 

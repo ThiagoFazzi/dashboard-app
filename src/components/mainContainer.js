@@ -1,27 +1,44 @@
 import React, {PureComponent} from 'react';
 import { connect } from 'react-redux';
 import { getSensorValue } from '../actions/sensors'
-import SensorComponent from './sensorComponent';
+import ColumnProgressBar from './columnProgressBar';
 import CircularProgressBar from './circularProgressBar'
 
 class MainComponent extends PureComponent {
 
     componentDidMount() {
         setInterval(
-            this.props.getSensorValue
-        ,1000)
+            () => this.props.getSensorValue(1),
+            () => this.props.getSensorValue(2)
+        ,2000)
     }
 
     render(){
         const { sensors } = this.props
         return(
             <div>
-                <SensorComponent
-                    value={sensors.value} />
+                <ColumnProgressBar
+                    color="red"
+                    barWidth="5"
+                    barHeight="200"
+                    percentage={sensors.value} />
                 
                 <CircularProgressBar
+                    color="red"
                     strokeWidth="5"
                     sqSize="200"
+                    percentage={sensors.value}/>
+
+                <ColumnProgressBar
+                    color="lime"
+                    barWidth="5"
+                    barHeight="100"
+                    percentage={sensors.value} />
+
+                <CircularProgressBar
+                    color="green"
+                    strokeWidth="5"
+                    sqSize="100"
                     percentage={sensors.value}/>
             </div>
         )
