@@ -23,7 +23,7 @@ const ColumnProgressBar = ({percentage, color, barWidth, barHeight}) => {
   return (
     <div style={styles.docker}>
         <div style={styles.sensor}></div>
-        <div>{`${percentage * 10}%`}</div>
+        <div>{`${percentage}%`}</div>
     </div>
   )
 }

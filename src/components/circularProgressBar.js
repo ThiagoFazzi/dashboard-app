@@ -7,7 +7,7 @@ const CircularProgressBar = ({percentage, strokeWidth, sqSize, color}) => {
   const radius = (sqSize - strokeWidth) / 2;
   const viewBox = `0 0 ${sqSizeT} ${sqSizeT}`;
   const dashArray = radius * Math.PI * 2;
-  const dashOffset = dashArray - dashArray * (percentage*10) / 100
+  const dashOffset = dashArray - dashArray * (percentage) / 100
 
   const styles = {
     circleBackground: {
@@ -54,7 +54,7 @@ const CircularProgressBar = ({percentage, strokeWidth, sqSize, color}) => {
           y="50%"
           dy=".3em"
           textAnchor="middle">
-          {`${percentage * 10}%`}
+          {`${percentage}%`}
         </text>
     </svg>
   )

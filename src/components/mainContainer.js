@@ -8,38 +8,29 @@ class MainComponent extends PureComponent {
 
     componentDidMount() {
         setInterval(
-            () => this.props.getSensorValue(1),
-            () => this.props.getSensorValue(2)
+            () => this.props.getSensorValue()
         ,2000)
     }
 
     render(){
         const { sensors } = this.props
+        if(!sensors) return null
         return(
             <div>
-                <ColumnProgressBar
-                    color="red"
-                    barWidth="5"
-                    barHeight="200"
-                    percentage={sensors.value} />
-                
-                <CircularProgressBar
-                    color="red"
-                    strokeWidth="5"
-                    sqSize="200"
-                    percentage={sensors.value}/>
+                {sensors.map(s => 
 
-                <ColumnProgressBar
-                    color="lime"
-                    barWidth="5"
-                    barHeight="100"
-                    percentage={sensors.value} />
+                    <CircularProgressBar
+                        color="green"
+                        strokeWidth="5"
+                        sqSize="100"
+                        percentage={s.value}
+                    />
 
-                <CircularProgressBar
-                    color="green"
-                    strokeWidth="5"
-                    sqSize="100"
-                    percentage={sensors.value}/>
+
+
+                )}
+
+
             </div>
         )
     }

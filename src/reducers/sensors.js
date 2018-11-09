@@ -1,9 +1,11 @@
 import {CHANGE_VALUE} from '../actions/sensors'
 
-export default (state = {}, action) => {
+export default (state = [], action) => {
   switch (action.type) {
     case CHANGE_VALUE:
-        return action.payload.sensors[0]
+    //console.log(action.payload.sensors)
+     console.log(...state) 
+        return(state,  action.payload.sensors)
 
     default:
       return state
